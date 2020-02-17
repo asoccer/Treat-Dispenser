@@ -30,12 +30,6 @@ def init():
 def main():
   p = init()
   GPIO.add_event_detect(10,GPIO.RISING,callback=codeLoop(p))
-  try:
-    while(1):
-      print("No commands have been issued")
-      time.sleep(1)
-   except KeyboardInterrupt:
-      sys.exit(0)
- 
-    
-    
+  while(1):
+          print("No commands")
+          
