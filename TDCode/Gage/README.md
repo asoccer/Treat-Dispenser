@@ -9,10 +9,17 @@ The set up of I2C audio on the Raspberry Pi Zero W with the "aplay" functionalit
 
 --------------------------------------------------
 the os.system('aplay <insert path name to wave file>') is the command that will play audio through the set up i2c
+    
 Sources:
+
 https://learn.adafruit.com/adafruit-max98357-i2s-class-d-mono-amp/raspberry-pi-wiring
+
 https://learn.adafruit.com/playing-sounds-and-using-buttons-with-raspberry-pi/circuitpython-code
+
 https://www.raspberrypi.org/forums/viewtopic.php?t=178441
+
 For difference in BOARD vs BCM:
+
 https://www.raspberrypi.org/forums/viewtopic.php?t=34273
+
 Click Sound adapted from:
