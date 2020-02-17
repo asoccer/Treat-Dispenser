@@ -6,16 +6,7 @@ The set up of I2C audio on the Raspberry Pi Zero W with the "aplay" functionalit
     The link above shows you everything you need to do. Please go by BCM pinouts though. This is the problem I originally had. 
 4. Once everything is set up, test the audio using their audio test described in the link.
 5. In order to set it up with a push button, use the following code
--------------------------------------------------
-import os                               
-import time
-import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BCM)                                                      # set up the board (NOT GPIO.BOARD)!!!!
-GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)                           # set pin 23 to Input
-while True:
-    if (GPIO.input(23) == False):               #when button is grounded:
-        os.system('aplay /home/pi/DogClickSound.wav')   # play the wav file (will need to record click sound as wav and enter path here)
-    time.sleep(0.1)
+
 --------------------------------------------------
 the os.system('aplay <insert path name to wave file>') is the command that will play audio through the set up i2c
 Sources:
