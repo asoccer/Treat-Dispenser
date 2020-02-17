@@ -33,3 +33,4 @@ def main():
   while(1):
           print("No commands")
           
+main()
