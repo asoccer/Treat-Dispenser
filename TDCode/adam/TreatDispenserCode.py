@@ -8,18 +8,18 @@ import sys
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7,GPIO.OUT)
+GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) #Pin 10 will be the signal the button sends a high to.
+
+
 
 
 #MAIN CODE LOOP FOR MANAGING THE DUTY CYCLE
 
 def codeLoop(p):
-  try:
-      while True:
-          p.ChangeDutyCycle(4)
-          time.sleep(2)
-          sys.exit(0)
-  except KeyboardInterrupt:
-      GPIO.cleanup()
+    print("Button input has been received
+    p.start(4)
+    time.sleep(2)
+    p.stop()
     
 #INITIALIZATION PARAMETERS FOR SETTING PULSE WIDTH MODULE
 
@@ -29,4 +29,13 @@ def init():
 
 def main():
   p = init()
-  codeLoop(p)
+  GPIO.add_event_detect(10,GPIO.RISING,callback=codeLoop(p))
+  try:
+    while(1):
+      print("No commands have been issued")
+      time.sleep(1)
+   except KeyboardInterrupt:
+      sys.exit(0)
+ 
+    
+    
