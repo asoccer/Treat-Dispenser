@@ -12,11 +12,10 @@ GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) #Pin 10 will be the signal t
 
 
 
-
 #MAIN CODE LOOP FOR MANAGING THE DUTY CYCLE
 
 def codeLoop(p):
-    print("Button input has been received
+    print("Button input has been received")
     p.start(4)
     time.sleep(2)
     p.stop()
@@ -29,8 +28,10 @@ def init():
 
 def main():
   p = init()
-  GPIO.add_event_detect(10,GPIO.RISING,callback=codeLoop(p))
-  while(1):
-          print("No commands")
-          
+  while True: # Run forever
+    if GPIO.input(10) == GPIO.HIGH:
+        print("Button was pushed!")
+        codeLoop(p)
+
+
 main()
